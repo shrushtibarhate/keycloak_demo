@@ -1,0 +1,419 @@
+:root {
+  --portal-black: #05080d;
+  --portal-navy: #071a33;
+  --portal-blue: #1d72d8;
+  --portal-light-blue: #28a4f4;
+  --portal-cyan: #1bb6d9;
+  --portal-yellow: #f7b928;
+  --portal-text: #10233f;
+  --portal-muted: #667085;
+  --portal-border: #d9e2ec;
+  --portal-white: #ffffff;
+}
+
+/* Page base */
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body,
+.login-pf {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--portal-text);
+  background:
+    radial-gradient(
+      circle at 50% 18%,
+      rgba(42, 119, 205, 0.26),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      #030609 0%,
+      #07111f 38%,
+      #173d68 70%,
+      #245b91 100%
+    ) !important;
+}
+
+/* Blue wave effect */
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  left: -10%;
+  right: -10%;
+  bottom: -170px;
+  height: 420px;
+  border-radius: 50% 50% 0 0;
+  background:
+    repeating-radial-gradient(
+      ellipse at center bottom,
+      transparent 0,
+      transparent 18px,
+      rgba(52, 157, 238, 0.34) 19px,
+      rgba(52, 157, 238, 0.34) 23px,
+      transparent 24px,
+      transparent 38px
+    );
+  transform: rotate(-3deg);
+  pointer-events: none;
+}
+
+/* Yellow accent line */
+body::after {
+  content: "";
+  position: fixed;
+  z-index: 1;
+  left: -8%;
+  right: -8%;
+  bottom: 44px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--portal-yellow) 15%,
+    var(--portal-yellow) 82%,
+    transparent 100%
+  );
+  box-shadow: 0 0 18px rgba(247, 185, 40, 0.42);
+  transform: rotate(-1.5deg);
+  pointer-events: none;
+}
+
+/* Main login positioning */
+.login-pf-page {
+  position: relative;
+  z-index: 3;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 34px 20px 64px;
+}
+
+/* Portal identity */
+#kc-header {
+  width: 100%;
+  max-width: 470px;
+  margin: 0 0 20px;
+  padding: 0;
+  text-align: center;
+}
+
+#kc-header-wrapper {
+  padding: 0 !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  text-transform: none !important;
+}
+
+/* Logo */
+#kc-header-wrapper::before {
+  content: "";
+  display: block;
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 14px;
+  border-radius: 18px;
+  background:
+    url("../img/portal-mark.svg")
+    center / contain no-repeat;
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+/* Heading */
+#kc-header-wrapper::after {
+  content: "TCS Access Portal";
+  display: block;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.55);
+}
+
+/* Login card */
+.card-pf {
+  position: relative;
+  width: 100%;
+  max-width: 470px;
+  box-sizing: border-box;
+  margin: 0 !important;
+  padding: 38px 40px 30px !important;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
+  border-radius: 22px !important;
+  background: rgba(255, 255, 255, 0.97) !important;
+  box-shadow:
+    0 30px 75px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(8, 32, 61, 0.2) !important;
+}
+
+/* Yellow top accent */
+.card-pf::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    var(--portal-blue),
+    var(--portal-cyan) 65%,
+    var(--portal-yellow)
+  );
+}
+
+/* Remove inherited large layouts */
+.pf-c-login,
+.pf-v5-c-login,
+.pf-v6-c-login,
+.pf-c-login__container,
+.pf-v5-c-login__container,
+.pf-v6-c-login__container,
+.pf-c-login__main,
+.pf-v5-c-login__main,
+.pf-v6-c-login__main {
+  width: 100%;
+  max-width: none;
+  min-height: auto;
+  margin: 0;
+  padding: 0;
+  display: block;
+  background: transparent !important;
+}
+
+.pf-c-login__header,
+.pf-v5-c-login__header,
+.pf-v6-c-login__header {
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* Form title */
+#kc-page-title {
+  margin: 0 0 8px !important;
+  color: var(--portal-navy) !important;
+  font-size: 27px !important;
+  font-weight: 750 !important;
+  line-height: 1.25;
+  text-align: left !important;
+}
+
+#kc-page-title::after {
+  content: "Sign in securely using your organizational account.";
+  display: block;
+  margin-top: 9px;
+  color: var(--portal-muted);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Form area */
+#kc-form {
+  margin-top: 28px;
+}
+
+.form-group,
+.pf-c-form__group,
+.pf-v5-c-form__group,
+.pf-v6-c-form__group {
+  margin-bottom: 19px;
+}
+
+/* Labels */
+label,
+.control-label,
+.pf-c-form__label-text,
+.pf-v5-c-form__label-text,
+.pf-v6-c-form__label-text {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--portal-text) !important;
+  font-size: 14px !important;
+  font-weight: 650 !important;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+.form-control,
+.pf-c-form-control,
+.pf-v5-c-form-control,
+.pf-v6-c-form-control {
+  width: 100%;
+  min-height: 48px;
+  box-sizing: border-box;
+  padding: 10px 14px !important;
+  border: 1px solid var(--portal-border) !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+  color: var(--portal-text) !important;
+  font-size: 15px !important;
+  box-shadow: none !important;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+input:focus,
+.form-control:focus,
+.pf-c-form-control:focus,
+.pf-v5-c-form-control:focus,
+.pf-v6-c-form-control:focus {
+  outline: none !important;
+  border-color: var(--portal-blue) !important;
+  background: #fbfdff !important;
+  box-shadow: 0 0 0 4px rgba(29, 114, 216, 0.12) !important;
+}
+
+/* Password input group */
+.pf-c-input-group,
+.pf-v5-c-input-group,
+.pf-v6-c-input-group {
+  display: flex;
+  width: 100%;
+}
+
+.pf-c-input-group input,
+.pf-v5-c-input-group input,
+.pf-v6-c-input-group input {
+  border-radius: 10px 0 0 10px !important;
+}
+
+.pf-c-input-group button,
+.pf-v5-c-input-group button,
+.pf-v6-c-input-group button {
+  width: 50px;
+  border: 1px solid var(--portal-border) !important;
+  border-left: 0 !important;
+  border-radius: 0 10px 10px 0 !important;
+  background: #ffffff !important;
+  color: var(--portal-navy) !important;
+}
+
+/* Login button */
+#kc-login,
+input[type="submit"],
+.pf-c-button.pf-m-primary,
+.pf-v5-c-button.pf-m-primary,
+.pf-v6-c-button.pf-m-primary {
+  width: 100%;
+  min-height: 49px;
+  margin-top: 7px;
+  border: 0 !important;
+  border-radius: 10px !important;
+  background: linear-gradient(
+    100deg,
+    #176fd1,
+    #1aa9d5
+  ) !important;
+  color: #ffffff !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(29, 114, 216, 0.24);
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    filter 150ms ease;
+}
+
+#kc-login:hover,
+input[type="submit"]:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow: 0 18px 34px rgba(29, 114, 216, 0.32);
+}
+
+/* Secondary links */
+a {
+  color: var(--portal-blue) !important;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Options */
+#kc-form-options {
+  margin-bottom: 18px;
+  color: var(--portal-muted);
+  font-size: 13px;
+}
+
+/* Alerts */
+.alert,
+.alert-error,
+.pf-c-alert,
+.pf-v5-c-alert,
+.pf-v6-c-alert {
+  margin-bottom: 20px;
+  border-radius: 10px !important;
+}
+
+/* Footer area */
+#kc-info,
+#kc-info-wrapper {
+  margin: 24px 0 0 !important;
+  padding: 18px 0 0 !important;
+  border-top: 1px solid #e7edf4;
+  background: transparent !important;
+  color: var(--portal-muted) !important;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+#kc-info-wrapper::after {
+  content: "Secure identity and role-based access management";
+  display: block;
+  margin-top: 8px;
+  color: #8a96a8;
+}
+
+/* Mobile */
+@media (max-width: 540px) {
+  .login-pf-page {
+    justify-content: flex-start;
+    padding: 30px 14px 70px;
+  }
+
+  #kc-header-wrapper::before {
+    width: 58px;
+    height: 58px;
+  }
+
+  #kc-header-wrapper::after {
+    font-size: 24px;
+  }
+
+  .card-pf {
+    max-width: 100%;
+    padding: 32px 24px 26px !important;
+    border-radius: 18px !important;
+  }
+
+  #kc-page-title {
+    font-size: 23px !important;
+  }
+}
